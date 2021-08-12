@@ -48,10 +48,10 @@ client.on('message', async message => {
         if (db.fetch(`reklam_${message.author.id}`) === 1)  {
             message.channel.send(`${message.author} Reklam yapmana izin vermem! Eğer 2 kez daha reklam yaparsan seni banlayacağım! (1/3)`).then(jahkyxd => jahkyxd.delete({ timeout: 5000 }))
         }
-        if (db.fetch(`reklam_${message.author.id}`) === 2) {
+        else if (db.fetch(`reklam_${message.author.id}`) === 2) {
             message.channel.send(`${message.author} Reklam yapmana izin vermem! Eğer 1 kez daha reklam yaparsan seni banlayacağım! (2/3)`).then(jahkyxd => jahkyxd.delete({ timeout: 5000 }))
         }
-        if (db.fetch(`reklam_${message.author.id}`) === 3) {
+        else if (db.fetch(`reklam_${message.author.id}`) === 3) {
             message.channel.send(`${message.author} Reklam yapma demiştim  bu yüzden seni banladım`)
             client.users.cache.get(message.author.id).send(`${message.author} Reklam yapma demiştim  bu yüzden seni banladım`).catch(err => message.channel.send(`${message.author} Kişisine bilgilendirme mesajı yollayamadım`))
             message.guild.members.ban(message.author.id, {reason: "Jahky Chat Guard"}).catch(err => message.channel.send(`${message.author} Kişisini banlayamadım`))
@@ -70,10 +70,10 @@ client.on("messageUpdate", async (oldMsg, newMsg) => {
         if (db.fetch(`reklam_${message.author.id}`) === 1 ) {
             message.channel.send(`${message.author}, Reklam yapmana izin vermem! Eğer 2 kez daha reklam yaparsan seni banlayacağım! (1/3)`).then(jahkyxd => jahkyxd.delete({ timeout: 5000 }))
         }
-        if (db.fetch(`reklam_${message.author.id}`) === 2) {
+        else if (db.fetch(`reklam_${message.author.id}`) === 2) {
             message.channel.send(`${message.author}, Reklam yapmana izin vermem! Eğer 1 kez daha reklam yaparsan seni banlayacağım! (2/3)`).then(jahkyxd => jahkyxd.delete({ timeout: 5000 }))
         }
-        if (db.fetch(`reklam_${message.author.id}`) === 3) {
+        else if (db.fetch(`reklam_${message.author.id}`) === 3) {
             message.channel.send(`${message.author}, Reklam yapma demiştim  bu yüzden seni banladım`)
             client.users.cache.get(message.author.id).send(`${message.author}, Reklam yapma demiştim  bu yüzden seni banladım`).catch(err => message.channel.send(`${message.author} Kişisine bilgilendirme mesajı yollayamadım`))
             message.guild.members.ban(message.author.id, {reason: "Jahky Chat Guard"}).catch(err => message.channel.send(`${message.author} Kişisini banlayamadım`))
